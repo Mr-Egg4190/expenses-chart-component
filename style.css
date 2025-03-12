@@ -28,10 +28,24 @@ body {
 }
 
 #balance {
-    width: 100%;
+    width: 90%;
     height: 20%;
 
+    padding-right: 5%;
+    padding-left: 5%;
+
     background-color: hsl(10, 79%, 65%);
+    color: white;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+p {
+    margin-top:0 ;
 }
 
 #expenses {
@@ -52,12 +66,12 @@ body {
     border: 1px solid black;
 }
 
-#expenses h2 {
+h2 {
     margin: 0;
 }
 
 #graph {
-    height: 40% ;
+    height: 37.5% ;
 }
 
 #total {
