@@ -14,34 +14,61 @@ body {
     justify-content: space-evenly;
 }
 
-#chartComponent {
+#container {
     width: 90%;
     height: 80%;
-
-    border: 1px solid black;
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
+#container > *{
+    border-radius: 25px;
+}
+
 #balance {
     width: 100%;
     height: 20%;
 
-    border: 1px solid black;
+    background-color: hsl(10, 79%, 65%);
 }
 
 #expenses {
     width: 100%;
     height: 75%;
 
+    background-color: hsl(33, 100%, 98%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+#expenses > * {
+    width: 90%;
     border: 1px solid black;
 }
 
+#expenses h2 {
+    margin: 0;
+}
+
+#graph {
+    height: 40% ;
+}
+
+#total {
+    height: 30%;
+    border-top: 3px solid hsl(27, 66%, 92%);
+}
+
 @media (min-width: 1024px) {
-    #chartComponent {
+    #container {
         width: 40%;
-        height: 66%;
+        height: 75%;
+        
     }
 }
