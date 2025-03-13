@@ -8,7 +8,7 @@ const addHeightToData = (importedData) => {
     return {
         dataWithHeight: importedData.map(existingData => ({
             ...existingData,
-            height: "60%"
+            height: `${(existingData.amount / biggestExpenses) * 60}%`
         })),
         biggestExpenses
     };
@@ -23,7 +23,7 @@ const generateGraph = ({ dataWithHeight, biggestExpenses }) => {
         graph.innerHTML += `
         <div class="day">
             <p>${weekDay.day}</p>
-            <div class="${pillarType}" style="height=${weekDay.height}" ></div>
+            <div class="${pillarType}" style="height: ${weekDay.height}" ></div>
             <div class="amount"><p>$${weekDay.amount}</p></div>
         </div>
     `;
