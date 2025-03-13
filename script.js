@@ -1,6 +1,30 @@
-const weekDays = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
-const graph = document.getElementById("graph");
+const expensesData = [];
 
-weekDays.forEach(day => {
-    graph.innerHTML += `<p>${day}</p>`;
-});
+const generateGraph = (data, biggestExpenses) => {
+    const graph = document.getElementById("graph");
+
+    data.forEach(weekDay => {
+        let pillarType = (weekDay.amount == biggestExpenses) ? "largest pillar" : "pillar";
+
+        graph.innerHTML += `
+        <div class="day">
+            <p>${weekDay.day}</p>
+            <div class="${pillarType}"></div>
+            <div class="amount"><p>$${weekDay.amount}</p></div>
+        </div>
+    `;
+
+    });
+};
+
+fetch('data.json')
+  .then(response => response.json())
+  .then(data => {
+    expensesData.push(...data);
+
+    const biggestExpenses = Math.max(...expensesData.map(day => day.amount));
+    console.log('Biggest Expense:', biggestExpenses);
+
+    generateGraph(expensesData, biggestExpenses);
+  })
+  .catch(error => console.error('Error fetching data:', error));

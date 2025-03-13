@@ -137,6 +137,10 @@ h2 {
     height: 50%;
 }
 
+.largest {
+    background-color: hsl(186, 34%, 60%);
+}
+
 #total {
     height: 25%;
     border-top: 3px solid hsl(27, 66%, 92%);
