@@ -70,7 +70,6 @@ p {
 
 #expenses > * {
     width: 90%;
-    border: 1px solid black;
 }
 
 h2 {
@@ -79,6 +78,62 @@ h2 {
 
 #graph {
     height: 40% ;
+
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+}
+
+.day {
+    height: 100%;
+
+    color: hsl(28, 10%, 53%);
+    text-align: center;
+
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 5%;
+}
+
+.day > * {
+    transition-duration: 0.2s;
+}
+
+.day p {
+    margin: 0;
+}
+
+.day:hover .amount {
+    opacity: 1;
+}
+
+.amount {
+    width: 150%;
+    height: 20%;
+
+    opacity: 0;
+
+    background-color: hsl(25, 47%, 15%);
+    border-radius: 5px;
+
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.pillar {
+    background-color: hsl(10, 79%, 65%);
+    border-radius: 5px;
+
+    width: 100%;
+    height: 50%;
+}
+
+.pillar:hover {
+    opacity: 80%;
 }
 
 #total {
