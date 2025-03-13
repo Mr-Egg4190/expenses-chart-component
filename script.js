@@ -1,4 +1,6 @@
-const expensesData = [];
+const getBiggestExpenses = (expensesData) => {
+    return Math.max(...expensesData.map(day => day.amount));
+}
 
 const generateGraph = (data, biggestExpenses) => {
     const graph = document.getElementById("graph");
@@ -17,14 +19,8 @@ const generateGraph = (data, biggestExpenses) => {
     });
 };
 
+
 fetch('data.json')
   .then(response => response.json())
-  .then(data => {
-    expensesData.push(...data);
-
-    const biggestExpenses = Math.max(...expensesData.map(day => day.amount));
-    console.log('Biggest Expense:', biggestExpenses);
-
-    generateGraph(expensesData, biggestExpenses);
-  })
+  .then(importedData => generateGraph(importedData, getBiggestExpenses(importedData)))
   .catch(error => console.error('Error fetching data:', error));
