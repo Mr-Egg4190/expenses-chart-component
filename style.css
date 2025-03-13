@@ -1,6 +1,9 @@
 body {
     padding: 0;
     margin: 0;
+
+    font-family: 'DM Sans', sans-serif;
+    color: hsl(25, 47%, 15%);
 }
 
 #content {
@@ -48,6 +51,10 @@ p {
     margin-top:0 ;
 }
 
+.lightBrown {
+    color: hsl(28, 10%, 53%);
+}
+
 #expenses {
     width: 100%;
     height: 75%;
@@ -71,12 +78,20 @@ h2 {
 }
 
 #graph {
-    height: 37.5% ;
+    height: 40% ;
 }
 
 #total {
-    height: 30%;
+    height: 25%;
     border-top: 3px solid hsl(27, 66%, 92%);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#total p,h1 {
+    margin: 0;
 }
 
 @media (min-width: 1024px) {
