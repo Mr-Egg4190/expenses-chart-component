@@ -109,6 +109,10 @@ h2 {
     opacity: 1;
 }
 
+.day:hover .pillar {
+    opacity: 80%;
+}
+
 .amount {
     width: 150%;
     height: 20%;
@@ -131,10 +135,6 @@ h2 {
 
     width: 100%;
     height: 50%;
-}
-
-.pillar:hover {
-    opacity: 80%;
 }
 
 #total {
