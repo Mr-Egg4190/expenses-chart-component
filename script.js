@@ -2,16 +2,28 @@ const getBiggestExpenses = (expensesData) => {
     return Math.max(...expensesData.map(day => day.amount));
 }
 
-const generateGraph = (data, biggestExpenses) => {
+const addHeightToData = (importedData) => {
+    let biggestExpenses = getBiggestExpenses(importedData);
+
+    return {
+        dataWithHeight: importedData.map(existingData => ({
+            ...existingData,
+            height: "60%"
+        })),
+        biggestExpenses
+    };
+};
+
+const generateGraph = ({ dataWithHeight, biggestExpenses }) => {
     const graph = document.getElementById("graph");
 
-    data.forEach(weekDay => {
+    dataWithHeight.forEach(weekDay => {
         let pillarType = (weekDay.amount == biggestExpenses) ? "largest pillar" : "pillar";
 
         graph.innerHTML += `
         <div class="day">
             <p>${weekDay.day}</p>
-            <div class="${pillarType}"></div>
+            <div class="${pillarType}" style="height=${weekDay.height}" ></div>
             <div class="amount"><p>$${weekDay.amount}</p></div>
         </div>
     `;
@@ -22,5 +34,5 @@ const generateGraph = (data, biggestExpenses) => {
 
 fetch('data.json')
   .then(response => response.json())
-  .then(importedData => generateGraph(importedData, getBiggestExpenses(importedData)))
+  .then(importedData => generateGraph( addHeightToData(importedData)))
   .catch(error => console.error('Error fetching data:', error));
